@@ -11,10 +11,10 @@ export default $config({
   },
   async run() {
     const storage = await import("./infra/storage");
-    await import("./infra/api");
+    const aurora = await import("./infra/aurora");
 
     return {
-      MyBucket: storage.bucket.name,
+      AuthDb: aurora.database,
     };
   },
 });
